@@ -1,0 +1,265 @@
+<%- include('components/header.ejs') %>
+  <body>
+    <!-- Create gaps -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container-lg">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Size</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0;i<atc.length;i++){%>
+            <tr>
+              <th scope="row">
+                <%= i+1 %>
+              </th>
+
+              <!-- product Name -->
+              <td>
+                <%= atc[i].title%>
+              </td>
+
+              <!-- Product Price -->
+              <td>
+                <%= atc[i].price%>
+              </td>
+
+              <!-- Product Quantity -->
+              <td>
+                <%= atc[i].quantity%>
+              </td>
+
+              <!-- Product Size -->
+              <td>
+                <%= atc[i].size%>
+              </td>
+
+              <!-- Buttons column i.e only delete button-->
+              <td>
+                <button type="button" class="btn btn-danger"
+                  onclick="deleteCartItem('<%= atc[i].addtocartid %>')">delete</button>
+              </td>
+            </tr>
+            <%}%>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="container-lg">
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button"
+          onclick="window.location.href='http://localhost:3000/payment'">Place Order</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <section id="footer">
+      <div class="container font">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Quick links</h5>
+            <ul class="list-unstyled quick-links">
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Home</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>About</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>FAQ</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Get Started</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Videos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>ABOUT</h5>
+            <ul class="list-unstyled quick-links">
+              <div>
+                <li>
+                  <a href="https://www.fiverr.com/share/qb8D02"
+                    ><i class="fa fa-angle-double-right"></i>Our Story</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.fiverr.com/share/qb8D02"
+                    ><i class="fa fa-angle-double-right"></i>Media</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.fiverr.com/share/qb8D02"
+                    ><i class="fa fa-angle-double-right"></i>Sustainibility</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>LEGAL STUFF</h5>
+            <ul class="list-unstyled quick-links">
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Terms of use</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Terms of safe</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-angle-double-right"></i>Get Started</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item">
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-twitter"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.fiverr.com/share/qb8D02"
+                  ><i class="fa fa-instagram"></i
+                ></a>
+              </li>
+              <!-- <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-google-plus"></i></a></li> -->
+              <li class="list-inline-item">
+                <a href="https://www.fiverr.com/share/qb8D02" target="_blank"
+                  ><i class="fa fa-envelope"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <hr />
+        </div>
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white"
+          >
+            <!-- <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p> -->
+            <p class="h6">
+              © All right Reversed.<a
+                class="text-green ml-2"
+                href="index.html"
+                target="_blank"
+                >Shoptacle</a
+              >
+            </p>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </section>
+    <!-- ./Footer -->
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!--Owl carousel-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript">
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 1500,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+      });
+    </script>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+      <script>
+        function deleteCartItem(cartItemId) {
+          const data = { addtocartid: cartItemId };
+          const url = "/addtocart";
+
+          fetch(url, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }).then(response => response.json())
+            .then(json => {
+              const message = json.message
+              alert(message)
+              location.reload();
+            })
+            .catch(error => {
+              console.log(error);
+            })
+        }
+      </script>
+  </body>
+
+  </html>

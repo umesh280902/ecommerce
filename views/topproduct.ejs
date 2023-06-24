@@ -1,0 +1,171 @@
+<%- include('components/header') %>
+
+<body>  
+<br/>
+<br/>
+<div style="display:flex;justify-content:center;flex-wrap:wrap;flex-direction:row;gap:7em;"  class="product" id="item<%=top[0].productid%>">
+<div>
+<div style="display:flex;flex-direction:column;gap:5px">
+<img src="<%='data:image/jpeg;base64,'+(image[0].images).toString('base64')%>" style="width:100px;height:150px;cursor: pointer;" class="img-thumbnail" alt="...">
+<img src="<%='data:image/jpeg;base64,'+(image[1].images).toString('base64')%>" style="width:100px;height:150px;cursor: pointer;" class="img-thumbnail" alt="...">
+<img src="<%='data:image/jpeg;base64,'+(image[2].images).toString('base64')%>" style="width:100px;height:150px;cursor: pointer;" class="img-thumbnail" alt="...">
+<img src="<%='data:image/jpeg;base64,'+(image[3].images).toString('base64')%>" style="width:100px;height:150px;cursor: pointer;" class="img-thumbnail" alt="...">
+</div>
+</div>
+<div id="carouselExampleDark" style="width:470px;height:600px;" class="carousel carousel-dark slide" data-bs-ride="carousel">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active" data-bs-interval="10000">
+<img src="<%='data:image/jpeg;base64,'+(image[0].images).toString('base64')%>" style="width:470px;height:600px;" class="d-block w-100" alt="...">
+<!-- <div class="carousel-caption d-none d-md-block">
+<h2>First slide label</h2>
+<p>Some representative placeholder content for the first slide.</p>
+</div> -->
+</div>
+<div class="carousel-item" data-bs-interval="2000">
+<img src="<%='data:image/jpeg;base64,'+(image[1].images).toString('base64')%>" style="width:470px;height:600px;" class="d-block w-100" alt="...">
+<!-- <div class="carousel-caption d-none d-md-block">
+<h2>Second slide label</h2>
+<p>Some representative placeholder content for the second slide.</p>
+</div> -->
+</div>
+<div class="carousel-item">
+<img src="<%='data:image/jpeg;base64,'+(image[2].images).toString('base64')%>" style="width:470px;height:600px;" class="d-block w-100" alt="...">
+<!-- <div class="carousel-caption d-none d-md-block">
+<h2>Third slide label</h2>
+<p>Some representative placeholder content for the third slide.</p>
+</div> -->
+</div>
+<div class="carousel-item ">
+<img src="<%='data:image/jpeg;base64,'+(image[3].images).toString('base64')%>" style="width:470px;height:600px;" class="d-block w-100" alt="...">
+<!-- <div class="carousel-caption d-none d-md-block">
+<h2>Fourth slide label</h2>
+<p>Some representative placeholder content for the fourth slide.</p>
+</div> -->
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+<div >
+<div style="font-weight:bold;font-size:3em;" id="title">
+<%=top[0].brand_name%>
+</div>
+<div style="font-size:2em;" id="subtitle">
+<%=top[0].brand_name%>'s <%= top[0].color%> <%=top[0].detail%> 
+</div>
+<div style="font-size:2.5em;font-weight:bolder" id="price">Rs.<%= ((top[0].price)-(top[0].price)*0.46).toFixed(2) %></div>
+<div style="font-size: x-large;">MRP
+<s style="color:gray;padding-left: 2px;padding-top:25px;" id="originalprice" >Rs.<%= top[0].price%></s>
+<span style="font-size:large;color: palevioletred;">&#40 46% OFF &#41</span>
+</div>
+<br>
+<div>
+<h5>SELECT SIZE</h5>
+</div>
+<br>
+<div style="display:flex;gap:1em">
+<input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+<label class="btn btn-light Size" for="option1"  onclick="setsize(0)"><%= image[0].size%></label>
+<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+<label class="btn btn-light Size" for="option2" onclick="setsize(1)"><%= image[1].size%></label>
+<!-- <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" disabled><label class="btn btn-secondary" for="option3">Disabled</label> -->
+<input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+<label class="btn btn-light Size" for="option4" onclick="setsize(2)"><%= image[2].size%></label>
+<input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+<label class="btn btn-light Size" for="option5" onclick="setsize(3)"><%= image[3].size%></label>
+</div>
+<br><br>
+<button type="button" class="btn btn-outline-danger">
+<div style="font-size:2.5em;padding-left:0.25em;padding-right: 0.25em;" onclick="sendData()">
+<!-- <a href=""> -->
+Add to cart
+<!-- </a> -->
+</div>
+</button>
+
+<div style="width:700px">
+<br><br>
+<h4>
+Product Details
+</h4>
+<ul style="list-style-type: disc">
+<li>Product color may slightly vary due to photographic lighting sources or your monitor settings</li>
+<li>Refresh Your Wardrobe and Highly Stylized Fushion <%= top[0].type%> then <% top[0].brand_name%> has the Answer for You. This Apparel is Very Stylish and Comfortable With Beautiful Designs and Patterns.</li>
+<li>Quality Satisfaction And Timely Delivery Are Assured is our aim. To Be Sure Of Authenticity, We Recommend You To Buy This Product From <%=top[0].brand_name%> Only.</li>
+<li>Machine wash.</li>
+<li><%= top[0].brand_name%>'s <%=top[0].color%> <%=top[0].detail%> is a <%= top[0].description%></li>
+<li>Cotton</li>
+</ul>
+</div>
+</div>
+</div>
+<br/>
+<br/>
+<!-- Footer -->
+<%- include('components/footer.ejs') %>
+<script>
+var Size;
+function setsize(i){
+Size=document.getElementsByClassName("Size")[i].textContent
+console.log(Size)
+}
+
+function addtocart(){
+const url=window.location.href
+const parts=url.split('/')
+const number=parts[parts.length-1]
+title=(document.getElementById('title').textContent).trim()
+subtitle=(document.getElementById('subtitle').textContent).trim()
+price=document.getElementById('price').textContent
+originalprice=document.getElementById('originalprice').textContent
+const Type='<%=top[0].gender%>'
+console.log(Type)
+let data={
+id:number,
+brandname:title,
+subbrand:subtitle,
+size:Size,
+price:price,
+originalprice:originalprice,
+type:Type
+}
+return data   
+}
+function sendData(){
+var data=addtocart()
+var url="/addtocart"
+if(!data.size){
+    alert('please select the size first')
+}else{
+    fetch(url,{
+        method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+}).then(response=>response.json())
+.then(json=>{
+    const message=json.message
+    alert(message)
+}).catch(error=>{
+    console.log(error);
+})
+}
+}
+
+
+</script>
+</body>
+</html>

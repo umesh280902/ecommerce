@@ -1,0 +1,23 @@
+{
+  "name": "shoptacle",
+  "version": "1.0.0",
+  "description": "this is a ecommerce website project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "umesh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "buffer": "^6.0.3",
+    "buffer-image": "^1.0.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.1.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.22"
+  }
+}

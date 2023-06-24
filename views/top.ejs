@@ -1,0 +1,144 @@
+<%- include('components/header.ejs')%>
+
+  <body>
+    <br>
+    <ul class="nav nav-pills;" style="justify-content:center;display:flex;font-size:1.75em;">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#"></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#" role="button"
+          aria-expanded="false">Price Range</a>
+        <ul class="dropdown-menu" style="font-size:large">
+          <li><a class="dropdown-item" style="color:black" href="#" id="ascending"
+              onclick="productasec()">Increasing</a></li>
+          <li><a class="dropdown-item" style="color:black" href="#" id="descending"
+              onclick="productdesc()">Decreasing</a></li>
+          <!-- <li><a class="dropdown-item" style="color:black" href="#">Rs 1500 - Rs 2000</a></li> -->
+          <!-- <li><hr class="dropdown-divider"></li> -->
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#" role="button"
+          aria-expanded="false">Brand</a>
+        <ul class="dropdown-menu" style="font-size: large">
+
+          <%- include('brandname/brandname.ejs') %>
+        </ul>
+      </li>
+      <!-- <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li> -->
+    </ul>
+    <!-- to have some space -->
+    <br><br><br><br><br>
+
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;flex-direction:row;gap:95px;" id="product">
+      <% for(let i=0;i<product.length;i++){%>
+        <div class="card item products" style="width: 18rem;box-shadow: -15px 15px 50px gainsboro;border-radius: 13px;"
+          id="item<%= product[i].productid %>">
+          <img src="<%='data:image/jpeg;base64,'+(product[i].image).toString('base64')%>" id="image1"
+            class="card-img-top" style="height:275px" alt="...">
+          <div class="card-body" style="padding: 20px;">
+            <h3 style="font-size:29px;font-weight: bold; cursor: pointer;" class="title"
+              id="title<%=product[i].productid%>"
+              onclick="window.location.href='/<%=product[i].gender%>/top/<%=product[i].productid%>'">
+              <%=product[i].brand_name%>
+            </h3></a>
+            <div style="font-size: larger;">
+              <%=product[i].brand_name%>'s <%=product[i].color%>
+                  <%=product[i].detail%>
+            </div>
+            <div style="padding-top: 8px;display: flex;flex-direction: row;gap:10px">
+              <label for="">SIZE:</label>
+              <select name="" id=""
+                style="color: gray; border-radius: 10px;border-color:gainsboro;border-width: 1px;border-style:inset;text-align: center;width:35px">
+                <option value="">S</option>
+                <option value="">M</option>
+                <option value="">L</option>
+                <option value="">XL</option>
+              </select>
+              <button id="cart"
+                style="color: gray; border-radius: 10px;border-color:gainsboro;border-width: 1px;border-style:inset;text-align: center;width:35px">Add</button>
+            </div>
+            <div style="font-size:xx-large;font-weight:bolder">
+              Rs.<%=((product[i].price)-(product[i].price)*0.46).toFixed(2) %></div>
+
+            <s style="color:gray;padding-left: 2px;padding-top:25px;" class="Price">Rs.<%=product[i].price%></s>
+            <span style="font-size:large;color: palevioletred;">&#40 46% off &#41</span>
+
+          </div>
+        </div>
+        <%}%>
+    </div>
+    
+    <div style="display: flex;justify-content: center;padding-top: 2.55em;">
+      <nav aria-label="Page navigation example" style="padding-top:2em;">
+        <ul class="pagination pagination-lg">
+          <li class="page-item"><a class="page-link" style="color:black" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" style="color:black" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" style="color:black" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" style="color:black" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" style="color:black" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <br>
+
+    <%- include('components/footer.ejs') %>
+      <script>
+        const data = {
+          "Increasing": null,
+          "Decreasing": null,
+          "Brandname": null,
+        };
+
+        const brandname = (i) => {
+          var index = parseInt(i);
+          var x = document.getElementsByClassName('Brandname');
+          var a = x[index].textContent;
+          console.log(a);
+          data.Brandname = a;
+          sendData();
+          console.log(data);
+        };
+
+        const productdesc = () => {
+          data.Decreasing = document.getElementById('descending').textContent;
+          data.Increasing = null;
+          sendData();
+          console.log(data);
+        };
+
+        const productasec = () => {
+          data.Increasing = document.getElementById('ascending').textContent;
+          data.Decreasing = null;
+          sendData();
+          console.log(data);
+        };
+
+        function sendData() {
+          const gender = '<%=product[0].gender%>';
+          const type = '<%=product[0].type%>';
+          const brand = data.Brandname;
+          const increasing = data.Increasing;
+          const decreasing = data.Decreasing;
+          const url = `http://localhost:3000/${gender}/${type}?Ascending=` + encodeURIComponent(data.Increasing) +'&Descending=' + encodeURIComponent(data.Decreasing) +'&brandName=' + encodeURIComponent(data.Brandname);
+          fetch(url,{
+                method:"GET",
+                headers:{
+                "Content-Type":"application/json"
+            }
+          }).then(response => response.json())
+            .then(data => {
+              console.log(data);
+            })
+            .catch(error => {
+            });
+            window.location.href = url;
+        }
+
+      </script>
+  </body>
+
+  </html>

@@ -1,0 +1,160 @@
+<%- include('components/header.ejs') %>
+  <div id="carouselExampleCaptions" class="carousel slide font" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="imgcar" src="c1.jpg" width="1680px" height="500px" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Get up to 70% off!!</h5>
+          <h1>On shirts, jeans and so on!</h1>
+          <div class="slider-btn">
+            <button class="btn btn-1">Shop Now!</button>
+            <!-- <button class="btn btn-2">Add to cart</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="imgcar" src="c2.jpg" width="1680px" height="500px" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Diwali Sale</h5>
+          <h1>16th Oct to 21st Oct</h1>
+          <div class="slider-btn">
+            <button class="btn btn-1">Shop Now!</button>
+            <!-- <button class="btn btn-2">Add to cart</button> -->
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <img class="imgcar" src="c3.jpg" width="1680px" height="500px" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Men's Wear</h5>
+          <h1>Upto 100% off!</h1>
+          <div class="slider-btn">
+            <button class="btn btn-1 ">Shop Now!</button>
+            <!-- <button class="btn btn-2">Add to cart</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!--Owl carousel code-->
+  <h1 class="collection font" style="font-weight:bold;">Our Collection</h1>
+  <div class="owl-carousel font owl-theme">
+    <div class="item">
+      <img class="photo1 bord" src="m1.jpg">
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+
+      </div>
+    </div>
+    <div class="item">
+      <img class="photo1 bord" src="w1.jpg">
+
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+
+      </div>
+    </div>
+    <div class="item">
+      <img class="photo1 bord" src="m5.jpg">
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+
+      </div>
+    </div>
+    <div class="item">
+      <img class="photo1 bord" src="w2.jpg">
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+
+      </div>
+    </div>
+    <div class="item">
+      <img class="photo1 bord" src="m6.jpg">
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+
+      </div>
+    </div>
+    <div class="item">
+      <img class="photo1 bord" src="w3.jpg">
+      <div class="d-grid gap-2 " style="padding-top:5px;">
+        <!-- <button class="btn btn-dark" type="button">Add to Cart</button> -->
+      </div>
+    </div>
+  </div>
+  <!--End owl carousel-->
+
+
+  <h1 class="c-text font " style="font-weight:bold;">Categories</h1>
+  <br>
+  <div style="padding-left:30px;display: flex;justify-content:flex-start;gap:3em;flex-wrap: wrap;">
+
+    <div class="card ml-1 font" style="width: 18rem;border-radius:10px;border-color: rgb(204, 204, 204);">
+      <img class="card-img-top" style="height: 350px;" src="men.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h1 class="card-title">MEN</h1>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <a href="/men/top" class="btn btn-primary">Shop now!</a>
+      </div>
+    </div>
+    <div class="card ml-1 font" style="width: 18rem;border-radius:10px;border-color: rgb(204, 204, 204);">
+      <img class="card-img-top" style="height: 350px;" src="women.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h1 class="card-title">WOMEN</h1>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <a href="/women/top" class="btn btn-primary">Shop now!</a>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="newone ">
+    <h1 class="cg-name">Men</h1>
+    <button class="allbutton btn btn-dark " ><a href="productpage2.html" >Shop Now</a></button>
+</div>
+<div class="oldone ">
+    <h1  class="cg-name">Women</h1>
+    <button class="allbutton btn btn-dark " ><a href="productpage2.html" >Shop Now</a></button>
+</div> -->
+
+  <!--End Cards-->
+  <!--Contact Me-->
+  <div class="contact-me font text-center">
+    <h2 class="get text-center" style="font-weight:bolder; font-size:4em;">Never Miss a Drop</h2>
+    <h3 class="love text-center">Introducing newest fashion of all time</h3>
+    <p class="contact-message text-center" style="opacity:50%">Subscribe to keep updated with our newest products,
+      latest offers</p>
+    <form>
+      <div class="form-group container">
+        <!-- <label for="exampleInputEmail1">Email address</label> -->
+        <div style="display:flex;justify-content:center;opacity:75%;">
+          <input type="email" class="form-control" style="width:400px;" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Enter email address">
+        </div>
+        <small id="emailHelp" class="form-text text-muted"><br></small>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <%-include('components/footer.ejs')%>
+    <!-- ./Footer -->
+    </body>
+
+    </html>
