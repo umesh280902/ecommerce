@@ -12,22 +12,43 @@ const express=require('express')
 const router=express.Router()
 const pool=require('./database')
 router.use(express.urlencoded({extended:true}))
+const imagePath='http://localhost:3000/image'
 // man
 async function bottomdetailsdesc(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='men' ORDER BY price DESC");
+    bottom.map((img)=>{
+        const mainPath='/men/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 async function bottomdetailsasec(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='men' ORDER BY price ASC");
+    bottom.map((img)=>{
+        const mainPath='/men/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 bottomdetails()
 async function bottomdetails(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='men'");
+    bottom.map((img)=>{
+        const mainPath='/men/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 async function bottomdetailsbrand(brand){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='men' and brand_name=?",brand);
+    bottom.map((img)=>{
+        const mainPath='/men/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 async function singlebottom(id){
@@ -48,9 +69,14 @@ singlebottom(18)
 async function singlebottomimages(id)
 {
     const images=await pool.query("SELECT * FROM topproduct WHERE productid=?",id)
+    images[0].map((img)=>{
+        const mainPath='/men/'+img.images
+        const finalImagePath=imagePath+mainPath
+        img.images=finalImagePath
+    })
     return images[0]
 }
-singlebottomimages(4)
+singlebottomimages(10)
 
 
 router.get('/men/bottom',async (req,res)=>{
@@ -85,21 +111,41 @@ router.get('/men/bottom/:id',async(req,res)=>{
 // woman
 async function womanbottomdetailsdesc(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='women' ORDER BY price DESC");
+    bottom.map((img)=>{
+        const mainPath='/women/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 womanbottomdetails()
 
 async function womanbottomdetailsasec(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='women' ORDER BY price ASC");
+    bottom.map((img)=>{
+        const mainPath='/women/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 
 async function womanbottomdetails(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='women'");
+    bottom.map((img)=>{
+        const mainPath='/women/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 async function womanbottomdetailsbrand(brand){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='women' and brand_name=?",brand);
+    bottom.map((img)=>{
+        const mainPath='/women/'+img.image
+        const finalImagePath=imagePath+mainPath
+        img.image=finalImagePath
+    })
     return bottom
 }
 
@@ -120,9 +166,14 @@ async function womansinglebottom(id){
 async function womansinglebottomimages(id)
 {
     const images=await pool.query("SELECT * FROM topproduct WHERE productid=?",id)
+    images[0].map((img)=>{
+        const mainPath='/women/'+img.images
+        const finalImagePath=imagePath+mainPath
+        img.images=finalImagePath
+    })
     return images[0]
 }
-
+womansinglebottomimages(32)
 
 
 router.get('/women/bottom',async (req,res)=>{

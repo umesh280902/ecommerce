@@ -37,7 +37,7 @@
       <% for(let i=0;i<product.length;i++){%>
         <div class="card item products" style="width: 18rem;box-shadow: -15px 15px 50px gainsboro;border-radius: 13px;"
           id="item<%= product[i].productid %>">
-          <img src="<%='data:image/jpeg;base64,'+(product[i].image).toString('base64')%>" id="image1"
+          <img src="<%=product[i].image%>" id="image1"
             class="card-img-top" style="height:275px" alt="...">
           <div class="card-body" style="padding: 20px;">
             <h3 style="font-size:29px;font-weight: bold; cursor: pointer;" class="title"

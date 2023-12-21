@@ -14,10 +14,20 @@ const pool = require("./database/database");
 const checkuser = require("./database/user");
 const addotcart = require("./database/addtocart");
 const payment = require("./database/payment");
+const path=require('path')
 const cookieParser=require('cookie-parser')
 app.use(cookieParser())
 app.use(express.static("client"));
+//app.use(express.static('client/images'))
 app.set("view engine", "ejs");
+app.get('/image/:category/:imageName',(req,res)=>{
+  const imageName=req.params.imageName
+  const category=req.params.category
+  const imagePath=path.join(__dirname,'client','images',category,imageName)
+  res.sendFile(imagePath)
+})
+
+
 app.listen(port, () => {
   console.log("the server is running at http://localhost:" + port);
 });
@@ -43,6 +53,6 @@ app.use(bottom);
 app.use(user);
 app.use(addotcart);
 app.use(payment);
-app.get('*',(req,res)=>{
-  res.send('page not found')
-})
+// app.get('*',(req,res)=>{
+//   res.send('page not found')
+// })
