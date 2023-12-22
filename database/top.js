@@ -13,7 +13,7 @@ const pool=require('./database')
 router.use(express.urlencoded({extended:true}))
 router.use(express.json())
 const path=require('path')
-const imagePath='http://localhost:3000/image'
+const imagePath='https://shoptacle.onrender.com/image'
 //man part
 
 async function topdetailsdesc(){

@@ -12,7 +12,7 @@ const express=require('express')
 const router=express.Router()
 const pool=require('./database')
 router.use(express.urlencoded({extended:true}))
-const imagePath='http://localhost:3000/image'
+const imagePath='https://shoptacle.onrender.com/image'
 // man
 async function bottomdetailsdesc(){
     const [bottom]=await pool.query("SELECT * FROM top where type='bottom' and gender='men' ORDER BY price DESC");
