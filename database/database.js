@@ -12,9 +12,6 @@ const pool = mysql.createPool({
   user: USER,
   password: PASSWORD,
   database: DATABASE,
-  waitForConnections:true,
-  connectionLimit:5,
-  queueLimit:0
 }).promise();
 
 pool.getConnection()
